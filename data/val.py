@@ -21,7 +21,7 @@ np.random.shuffle(indices)
 split = int(np.floor(valid_size * num_train))
 train_idx, valid_idx = indices[split:], indices[:split]
 
-# define samplers for obtaining training and validation batches
+# define samplers for obtaining validation batches
 valid_sampler = SubsetRandomSampler(valid_idx)
 
 # prepare data loaders (combine dataset and sampler)
@@ -35,7 +35,7 @@ n_epochs = 30
 
 for epoch in range(1, n_epochs + 1):
 
-    # keep track of training and validation loss
+    # keep track of validation loss
     valid_loss = 0.0
 
     # validate the model
@@ -55,7 +55,7 @@ for epoch in range(1, n_epochs + 1):
     # calculate average losses
     valid_loss = valid_loss / len(valid_loader.sampler)
 
-    # print training/validation statistics
+    # print validation statistics
     print('Epoch: {} \tValidation Loss: {:.6f}'.format(
         epoch, valid_loss))
 
