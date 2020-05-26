@@ -1,3 +1,9 @@
+# val.py
+# CS 445/545 -- Spring 2020
+
+# Validation function for network training.
+
+# Imports
 import torch
 import numpy as np
 

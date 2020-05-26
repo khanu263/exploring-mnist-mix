@@ -6,18 +6,19 @@
 # of split files describing indices and classes for
 # the various experiments.
 
-# Usage: place this in the same directory with X_train.npy,
-#        y_train.py, X_test.npy, and y_test.npy, then run.
+# Usage: place this in the same directory as the data
+#        archive (MNIST_MIX_train_test.npz) and run.
 
 # Imports
 import os
 import numpy as np
 
 # Load raw data
-x_train = np.load("X_train.npy")
-y_train = np.load("y_train.npy")
-x_test = np.load("X_test.npy")
-y_test = np.load("y_test.npy")
+dataset = np.load('MNIST_MIX_train_test.npz')
+X_train = dataset['X_train']
+y_train = dataset['y_train']
+X_test = dataset['X_test']
+y_test = dataset['y_test']
 print("Loaded raw data.")
 
 # Create full dataset and scale

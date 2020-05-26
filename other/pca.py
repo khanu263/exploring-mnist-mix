@@ -1,7 +1,17 @@
+# pca.py
+# CS 445/545 -- Spring 2020
+
+# Performing PCA on the dataset.
+
+# Imports
 import numpy
 import glob
+
+# Main
 def main():
+
     datasets = glob.glob("MNIST-MIX-all/*.npz")
+
     for dataset in datasets:
         data = numpy.load(dataset)
         training_digits = data['X_train']
@@ -19,5 +29,6 @@ def main():
         training_data = numpy.matmul(training_digits, eigenvectors)
 
     pi = 1
+
 if __name__ == "__main__":
     main()
