@@ -31,3 +31,11 @@ def train(data, label, model, optimizer):
     loss = criterion(output, target)
     loss.backward()
     optimizer.step()
+def test(data, label, model):
+    output = model(data)
+    accuracy = 0
+    for p in range(label.shape[0]):
+        prediction = torch.argmax(output[p,:])
+        if (prediction == label[p]):
+            accuracy += 1
+    return accuracy / output.shape[0]
