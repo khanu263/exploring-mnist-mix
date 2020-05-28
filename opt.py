@@ -22,6 +22,9 @@ def training(data, label, model):
 
 
 def train(data, label, model, optimizer):
+    if (torch.cuda.is_available()):
+        data = data.cuda()
+        label = label.cuda()
     optimizer.zero_grad()
     output = model(data)
     target = torch.zeros_like(output)
@@ -31,11 +34,23 @@ def train(data, label, model, optimizer):
     loss = criterion(output, target)
     loss.backward()
     optimizer.step()
+
 def test(data, label, model):
+    if (torch.cuda.is_available()):
+        data = data.cuda()
+        label = label.cuda()
     output = model(data)
     accuracy = 0
+    confusion_matrix = torch.zeros((output.shape[1], output.shape[1]))
+    softmax_matrix = torch.zeros((output.shape[1], output.shape[1]))
+    if (torch.cuda.is_available()):
+        confusion_matrix = confusion_matrix.cuda()
+        softmax_matrix = softmax_matrix.cuda()
     for p in range(label.shape[0]):
         prediction = torch.argmax(output[p,:])
+        softmax = F.softmax(output[p,:])
+        confusion_matrix[int(label[p]), prediction] += 1
+        softmax_matrix[int(label[p]), :] += softmax[:]
         if (prediction == label[p]):
             accuracy += 1
-    return accuracy / output.shape[0]
+    return accuracy / output.shape[0], confusion_matrix, softmax_matrix
