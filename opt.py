@@ -9,7 +9,7 @@ def training(data, label, model):
     learning_rate = 1e-2
     momentum_value = 1e-1
     runs_per_epoch = int(data.shape[0] / batch_size)
-    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, momentum = momentum_value)
     for epoch in range(epochs):
         permutation = np.random.permutation(data.shape[0])
         data = data[permutation]
