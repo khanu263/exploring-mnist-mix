@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 from opt import test, training, train
-from feedforward import Net
+from feedforward import FeedForward
 def main():
 # Load raw data
     dataset = 'Arabic_train_test.npz'
@@ -16,6 +16,8 @@ def main():
     y_train = data['y_train']
     X_test = data['X_test']
     y_test = data['y_test']
+    X_train = X_train / 255
+    X_test = X_test / 255
     X_train = torch.from_numpy(X_train)
     y_train = torch.from_numpy(y_train)
     X_train = X_train.type(torch.FloatTensor)
@@ -24,7 +26,7 @@ def main():
     y_test = torch.from_numpy(y_test)
     X_test = X_test.type(torch.FloatTensor)
     y_test = y_test.type(torch.FloatTensor)
-    net = Net()
+    net = FeedForward()
     if (torch.cuda.is_available()):
         net = net.cuda()
     print(test(X_test, y_test, net))

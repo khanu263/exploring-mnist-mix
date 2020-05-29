@@ -9,7 +9,7 @@ def training(data, label, model):
     learning_rate = 1e-2
     momentum_value = 1e-1
     runs_per_epoch = int(data.shape[0] / batch_size)
-    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, momentum=momentum_value)
+    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
     for epoch in range(epochs):
         permutation = np.random.permutation(data.shape[0])
         data = data[permutation]
@@ -25,13 +25,13 @@ def train(data, label, model, optimizer):
     if (torch.cuda.is_available()):
         data = data.cuda()
         label = label.cuda()
-    optimizer.zero_grad()
     output = model(data)
     target = torch.zeros_like(output)
     for p in range(target.shape[0]):
         target[p, int(label[p])] = 1
     criterion = nn.MSELoss()
     loss = criterion(output, target)
+    optimizer.zero_grad()
     loss.backward()
     optimizer.step()
 
