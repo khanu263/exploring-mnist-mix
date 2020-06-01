@@ -16,8 +16,6 @@ def main():
     y_train = data['y_train']
     X_test = data['X_test']
     y_test = data['y_test']
-    X_train = X_train / 255
-    X_test = X_test / 255
     X_train = torch.from_numpy(X_train)
     y_train = torch.from_numpy(y_train)
     X_train = X_train.type(torch.FloatTensor)
@@ -26,7 +24,27 @@ def main():
     y_test = torch.from_numpy(y_test)
     X_test = X_test.type(torch.FloatTensor)
     y_test = y_test.type(torch.FloatTensor)
-    net = FeedForward()
+    X_train = X_train / 255
+    X_test = X_test / 255
+    # percentage of training set to use as validation
+    valid_size = 0.2
+
+    # Pytorch train sets
+    train_data = torch.utils.data.TensorDataset(X_test, y_test)
+
+    # obtain training indices that will be used for validation
+    num_train = len(train_data)
+    indices = list(range(num_train))
+    np.random.shuffle(indices)
+    split = int(np.floor(valid_size * num_train))
+    train_idx, valid_idx = indices[split:], indices[:split]
+
+    # define samplers for obtaining validation batches
+    #valid_sampler = SubsetRandomSampler(valid_idx)
+
+    # prepare data loaders (combine dataset and sampler)
+    #valid_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, sampler=valid_sampler)
+    net = FeedForward([100,100])
     if (torch.cuda.is_available()):
         net = net.cuda()
     print(test(X_test, y_test, net))
