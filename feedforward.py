@@ -44,18 +44,19 @@ class FeedForward(nn.Module):
         num_hid_nodes.insert(0,(28*28)) # Add the number of inputs(pixels)
         num_hid_nodes.append(10) # Add the final number of outputs
 
-        #self.layers will contain all the hidden number attribute names. e.g. ff1, ff2, ....
-        self.layers = []
+        self.layers = [] #contains all the hidden number attribute names. e.g. ff1, ff2, ....
         for i in range(len(num_hid_nodes)-1):
             self.layers.append("ff"+str(i+1))
-        
+        hid_layers = {} # a dictionary of all layers to be used in ModuleDict
         for i,item in enumerate(self.layers):
-            self.__dict__[item] = nn.Linear(num_hid_nodes[i], num_hid_nodes[i+1])
+            hid_layers[item] = nn.Linear(num_hid_nodes[i], num_hid_nodes[i+1])
+            
+        self.layers_dict = nn.ModuleDict(hid_layers)
 
     def forward(self,x: np.ndarray) -> np.ndarray: # x will be each picture in 2D format 28 by 28 pixels
+        print(type(x))
         x = x.view(-1,28*28) # Flatten the image
         for item in self.layers[:-1]:
-            print(item)
-            x = F.sigmoid(self.__dict__[item](x))
-        x = self.__dict__[self.layers[-1]](x) # output doesn't need activation function
+            x = F.sigmoid(self.layers_dict.__dict__[item](x))
+        x = self.layers_dict.__dict__[self.layers[-1]](x) # output doesn't need activation function
         return x
