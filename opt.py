@@ -39,7 +39,7 @@ def training(data, label, model):
         if (batch_size * runs_per_epoch == data.shape[0]): # perfectly divided batches
             continue
         train(data[i * runs_per_epoch:,:,:], label[i * runs_per_epoch:], model, optimizer)
-        validation(valid_loader, epoch)
+        validation(valid_loader, model, epoch)
 
 def train(data, label, model, optimizer):
     if (torch.cuda.is_available()):
@@ -56,7 +56,7 @@ def train(data, label, model, optimizer):
     optimizer.step()
 
 
-def validation(valid_loader, epoch):
+def validation(valid_loader, model, epoch):
 
     # Loss function
     criterion = nn.MSELoss()
