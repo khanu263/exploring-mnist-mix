@@ -41,10 +41,6 @@ def train(model, data, labels, loader, lr, momentum, device):
         # Calculate loss and run optimization step
         loss = criterion(output, label_batch)
         total_loss += loss.item()
-        print(output)
-        print(label_batch)
-        print(loss.item())
-        plt.imshow(data_batch[0].cpu())
         loss.backward()
         optimizer.step()
 
