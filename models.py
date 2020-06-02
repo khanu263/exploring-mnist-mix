@@ -32,7 +32,7 @@ class FeedForward(nn.Module):
     def forward(self, x: torch.FloatTensor) -> torch.FloatTensor: # x will be each picture in tensor 2D format 28 by 28 pixels
         x = x.view(-1, 28*28) # Flatten the image
         for layer in self.layers[:-1]:
-            x = F.sigmoid(layer(x))
+            x = torch.sigmoid(layer(x))
         x = self.layers[-1](x)
         return x
 

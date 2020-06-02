@@ -4,8 +4,8 @@
 # Training and validation / testing functions.
 
 # Imports
-import torch
 import numpy as np
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
@@ -15,22 +15,22 @@ import matplotlib.pyplot as plt
 # TRAINING
 #################################################
 
-# Train the given model on the given data with the given parameters.
+# Train the given model on the given data.
 def train(model, data, labels, loader, lr, momentum, device):
 
     # Define criterion and optimizer
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr = lr, momentum = momentum)
 
-    # Initialize loss for epoch
-    total_loss = 0
+    # Initialize loss
+    total_loss = 0.0
 
     # Go through each batch
-    for batch in loader:
+    for i, batch in enumerate(loader):
 
         # Get the data and labels
         data_batch = data[batch].to(device)
-        label_batch = labels[batch].to(device)
+        label_batch = labels[batch].clone().detach().long().to(device)
 
         # Zero the optimizer gradients
         optimizer.zero_grad()
@@ -38,16 +38,19 @@ def train(model, data, labels, loader, lr, momentum, device):
         # Pass the batch through the network
         output = F.softmax(model(data_batch), dim = 1)
 
-        # Create the target based on the label batch
-        target = torch.zeros_like(output)
-        for i in range(len(target)):
-            target[i][label_batch[i]] = 1
-
         # Calculate loss and run optimization step
-        loss = criterion(output, target)
+        loss = criterion(output, label_batch)
         total_loss += loss.item()
+        print(output)
+        print(label_batch)
+        print(loss.item())
+        plt.imshow(data_batch[0].cpu())
         loss.backward()
         optimizer.step()
+
+        # Print progress
+        if i % 1000 == 0:
+            print("\tFinished batch {} ({:.1f}% complete).".format(i, (i / len(loader)) * 100))
 
     # Return average loss
     return total_loss / len(loader)
@@ -56,56 +59,75 @@ def train(model, data, labels, loader, lr, momentum, device):
 # VALIDATION
 #################################################
 
-def validation(valid_loader, model, epoch):
+# Run validation on the given model with the given data.
+def validate(model, data, labels, loader, device):
 
-    # Loss function
-    criterion = nn.MSELoss()
+    # Initialize loss and define criterion
+    total_loss = 0.0
+    criterion = nn.CrossEntropyLoss()
 
-    # keep track of validation loss
-    valid_loss = 0.0
+    # Turn off gradient tracking
+    with torch.no_grad():
 
-    # validate the model
-    # tell the model that it is evaluation mode
-    # model.eval()
-    for data, target in valid_loader:
-        # move tensors to GPU if CUDA is available
-        if torch.cuda.is_available():
-            data, target = data.cuda(), target.cuda()
-        # forward pass: compute predicted outputs by passing inputs to the model
-        output = model(data)
-        # calculate the batch loss
-        loss = criterion(output, target)
-        # update average validation loss
-        valid_loss += loss.item() * data.size(0)
+        # Go through each batch
+        for batch in loader:
 
-    # calculate average losses
-    valid_loss = valid_loss / len(valid_loader.sampler)
+            # Get the data and labels
+            data_batch = data[batch].to(device)
+            label_batch = labels[batch].clone().detach().long().to(device)
 
-    # print validation statistics
-    print('Epoch: {} \tValidation Loss: {:.6f}'.format(
-        epoch, valid_loss))
-    return valid_loss
+            # Pass the batch through the network
+            output = F.softmax(model(data_batch), dim = 1)
+
+            # Calculate loss
+            loss = criterion(output, label_batch)
+            total_loss += loss.item()
+
+    # Return average loss
+    return total_loss / len(loader)
 
 #################################################
 # TESTING
 #################################################
 
-def test(data, label, model):
-    if (torch.cuda.is_available()):
-        data = data.cuda()
-        label = label.cuda()
-    output = model(data)
-    accuracy = 0
-    confusion_matrix = torch.zeros((output.shape[1], output.shape[1]))
-    softmax_matrix = torch.zeros((output.shape[1], output.shape[1]))
-    if (torch.cuda.is_available()):
-        confusion_matrix = confusion_matrix.cuda()
-        softmax_matrix = softmax_matrix.cuda()
-    for p in range(label.shape[0]):
-        prediction = torch.argmax(output[p,:])
-        softmax = F.softmax(output[p,:])
-        confusion_matrix[int(label[p]), prediction] += 1
-        softmax_matrix[int(label[p]), :] += softmax[:]
-        if (prediction == label[p]):
-            accuracy += 1
-    return accuracy / output.shape[0], confusion_matrix, softmax_matrix
+# Test the model (accuracy / confusion) on the given model with the given data.
+def test(model, data, labels, loader, device, num_classes):
+
+    # Initialize metrics
+    total = 0
+    correct = 0
+    confusion_matrix = torch.zeros((num_classes, num_classes))
+    softmax_matrix = torch.zeros((num_classes, num_classes)).to(device)
+
+    # Turn off gradient tracking
+    with torch.no_grad():
+
+        # Go through each batch
+        for batch in loader:
+
+            # Get the data and labels
+            data_batch = data[batch].to(device)
+            label_batch = labels[batch].to(device)
+
+            # Pass the batch through the network and get the prediction
+            output = F.softmax(model(data_batch), dim = 1)
+
+            # Iterate through each example
+            for i in range(len(batch)):
+
+                # Get the prediction and the actual label
+                pred = int(torch.argmax(output[i]))
+                label = int(label_batch[i])
+
+                # Increment accuracy counts
+                total += 1
+                if pred == label:
+                    correct += 1
+
+                # Increment matrices
+                confusion_matrix[label, pred] += 1
+                softmax_matrix[label, :] += output[i]
+
+    # Move softmax matrix back to CPU and return metrics
+    softmax_matrix.to("cpu")
+    return total, correct, confusion_matrix, softmax_matrix
