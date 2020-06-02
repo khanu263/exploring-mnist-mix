@@ -46,11 +46,11 @@ val_split = test_split[::10]
 print("Loaded NumPy data.")
 
 # Convert to tensor
-data = torch.from_numpy(data)
-labels = torch.from_numpy(labels)
-train_split = torch.from_numpy(train_split)
-test_split = torch.from_numpy(test_split)
-val_split = torch.from_numpy(val_split)
+data = torch.from_numpy(data).long()
+labels = torch.from_numpy(labels).long()
+train_split = torch.from_numpy(train_split).long()
+test_split = torch.from_numpy(test_split).long()
+val_split = torch.from_numpy(val_split).long()
 print("Converted data to tensor format.")
 
 # Define data sets and data loaders
