@@ -78,7 +78,7 @@ if args.feedforward:
     resnet = False
     print("Created feedforward model with parameters {}".format(args.feedforward))
 elif args.resnet:
-    model = models.ResNet(models.ResNetBasicBlock, args.resnet, num_classes)
+    model = models.ResNet(args.resnet, num_classes)
     resnet = True
     print("Created ResNet model with parameters {}".format(args.resnet))
 else:

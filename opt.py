@@ -16,7 +16,8 @@ import matplotlib.pyplot as plt
 #################################################
 
 # Train the given model on the given data.
-def train(model, data, labels, loader, lr, momentum, device, resnet):
+def train(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: torch.utils.data.dataloader.DataLoader,
+          lr: float, momentum: float, device: torch.device, resnet: bool) -> float:
 
     # Define criterion and optimizer
     criterion = nn.CrossEntropyLoss()
@@ -60,7 +61,8 @@ def train(model, data, labels, loader, lr, momentum, device, resnet):
 #################################################
 
 # Run validation on the given model with the given data.
-def validate(model, data, labels, loader, device, resnet):
+def validate(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: torch.utils.data.dataloader.DataLoader,
+             device: torch.device, resnet: bool) -> float:
 
     # Initialize loss and define criterion
     total_loss = 0.0
@@ -95,7 +97,8 @@ def validate(model, data, labels, loader, device, resnet):
 #################################################
 
 # Test the model (accuracy / confusion) on the given model with the given data.
-def test(model, data, labels, loader, device, num_classes, resnet):
+def test(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: torch.utils.data.dataloader.DataLoader,
+         device: torch.device, num_classes: int, resnet: bool) -> (int, int, torch.Tensor, torch.Tensor):
 
     # Initialize metrics
     total = 0

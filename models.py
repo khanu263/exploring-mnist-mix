@@ -44,7 +44,7 @@ class FeedForward(nn.Module):
 class ResNetBasicBlock(nn.Module):
 
     # Initialization
-    def __init__(self, in_planes, planes, stride = 1):
+    def __init__(self, in_planes: int, planes: int, stride: int = 1):
 
         # Superclass initialization
         super(ResNetBasicBlock, self).__init__()
@@ -63,7 +63,7 @@ class ResNetBasicBlock(nn.Module):
             self.shortcut = nn.Sequential(nn.Conv2d(in_planes, planes, kernel_size = 1, stride = stride, bias = False), nn.BatchNorm2d(planes))
 
     # Forward pass though block
-    def forward(self, x):
+    def forward(self, x: torch.FloatTensor) -> torch.FloatTensor:
         out = F.relu(self.bn1(self.conv1(x)))
         out = self.conv2(out)
         out += self.shortcut(x)
@@ -74,7 +74,7 @@ class ResNetBasicBlock(nn.Module):
 class ResNet(nn.Module):
 
     # Initialization
-    def __init__(self, block, block_sizes, out_classes):
+    def __init__(self, block_sizes: list, out_classes: int):
 
         # Superclass initialization
         super(ResNet, self).__init__()
@@ -85,15 +85,15 @@ class ResNet(nn.Module):
         self.bn1 = nn.BatchNorm2d(16)
 
         # ResNet blocks
-        self.layer1 = self.make_layer(block, 16, block_sizes[0], stride = 1)
-        self.layer2 = self.make_layer(block, 32, block_sizes[1], stride = 2)
-        self.layer3 = self.make_layer(block, 64, block_sizes[2], stride = 2)
+        self.layer1 = self.make_layer(16, block_sizes[0], stride = 1)
+        self.layer2 = self.make_layer(32, block_sizes[1], stride = 2)
+        self.layer3 = self.make_layer(64, block_sizes[2], stride = 2)
 
         # Final feedforward layer
         self.linear = nn.Linear(64, out_classes)
 
     # Make a ResNet block
-    def make_layer(self, block, planes, num_blocks, stride):
+    def make_layer(self, planes: int, num_blocks: int, stride: int) -> torch.nn.Sequential:
 
         # Set up strides
         strides = [stride] + [1] * (num_blocks - 1)
@@ -101,14 +101,14 @@ class ResNet(nn.Module):
 
         # Make each block
         for stride in strides:
-            layers.append(block(self.in_planes, planes, stride))
+            layers.append(ResNetBasicBlock(self.in_planes, planes, stride))
             self.in_planes = planes
 
         # Return as a sequence of layers
         return nn.Sequential(*layers)
 
     # Forward pass through network
-    def forward(self, x):
+    def forward(self, x: torch.FloatTensor) -> torch.FloatTensor:
         out = F.relu(self.bn1(self.conv1(x)))
         out = self.layer3(self.layer2(self.layer1(out)))
         out = F.avg_pool2d(out, 7)
