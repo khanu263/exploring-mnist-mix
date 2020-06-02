@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 def training(data, label, model):
     batch_size = 16
     epochs = 100
-    learning_rate = 1e-2
-    momentum_value = 1e-1
+    learning_rate = 1e-3
+    momentum_value = 1e-2
     runs_per_epoch = int(data.shape[0] / batch_size)
     optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, momentum = momentum_value)
 
@@ -65,6 +65,7 @@ def validation(valid_loader, model, epoch):
     # print validation statistics
     print('Epoch: {} \tValidation Loss: {:.6f}'.format(
         epoch, valid_loss))
+    return valid_loss
 
 def test(data, label, model):
     if (torch.cuda.is_available()):

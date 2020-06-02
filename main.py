@@ -50,7 +50,7 @@ def main():
         net = net.cuda()
     accuracy, confusion, softmax = test(X_test, y_test, net)
     print(accuracy)
-    for i in range(1000):
+    for i in range(100):
         training(X_train[train_idx], y_train[train_idx], net)
         accuracy, confusion, softmax = test(X_test, y_test, net)
         print(accuracy)
@@ -60,7 +60,7 @@ def main():
         net2 = net2.cuda()
     accuracy, confusion, softmax = test(X_test, y_test, net)
     print(accuracy)
-    for i in range(1000):
+    for i in range(100):
         training(X_train[train_idx], y_train[train_idx], net2)
         accuracy, confusion, softmax = test(X_test, y_test, net2)
         print(accuracy)
@@ -73,7 +73,7 @@ def main():
         net3 = net3.cuda()
     accuracy, confusion, softmax = test(X_test, y_test, net)
     print(accuracy)
-    for i in range(1000):
+    for i in range(100):
         training(X_train[train_idx], y_train[train_idx], net3)
         accuracy, confusion, softmax = test(X_test, y_test, net3)
         print(accuracy)
