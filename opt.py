@@ -1,41 +1,60 @@
+# opt.py
+# CS 445/545 -- Spring 2020
+
+# Training and validation / testing functions.
+
+# Imports
 import torch
 import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
+import torch.optim as optim
 import matplotlib.pyplot as plt
-def training(data, label, model):
-    batch_size = 16
-    epochs = 100
-    learning_rate = 1e-3
-    momentum_value = 1e-2
-    runs_per_epoch = int(data.shape[0] / batch_size)
-    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, momentum = momentum_value)
 
-    for epoch in range(epochs):
-        permutation = np.random.permutation(data.shape[0])
-        data = data[permutation]
-        label = label[permutation]
-        for i in range(runs_per_epoch):
-            train(data[i*batch_size: (i+1)*batch_size - 1,:,:], label[i*batch_size: (i+1)*batch_size - 1], model, optimizer)
-        if (batch_size * runs_per_epoch == data.shape[0]): # perfectly divided batches
-            continue
-        train(data[i * runs_per_epoch:,:,:], label[i * runs_per_epoch:], model, optimizer)
-        validation(valid_loader, model, epoch)
+#################################################
+# TRAINING
+#################################################
 
-def train(data, label, model, optimizer):
-    if (torch.cuda.is_available()):
-        data = data.cuda()
-        label = label.cuda()
-    output = model(data)
-    target = torch.zeros_like(output)
-    for p in range(target.shape[0]):
-        target[p, int(label[p])] = 1
-    criterion = nn.MSELoss()
-    loss = criterion(output, target)
-    optimizer.zero_grad()
-    loss.backward()
-    optimizer.step()
+# Train the given model on the given data with the given parameters.
+def train(model, data, labels, loader, lr, momentum, device):
 
+    # Define criterion and optimizer
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.SGD(model.parameters(), lr = lr, momentum = momentum)
+
+    # Initialize loss for epoch
+    total_loss = 0
+
+    # Go through each batch
+    for batch in loader:
+
+        # Get the data and labels
+        data_batch = data[batch].to(device)
+        label_batch = labels[batch].to(device)
+
+        # Zero the optimizer gradients
+        optimizer.zero_grad()
+
+        # Pass the batch through the network
+        output = F.softmax(model(data_batch), dim = 1)
+
+        # Create the target based on the label batch
+        target = torch.zeros_like(output)
+        for i in range(len(target)):
+            target[i][label_batch[i]] = 1
+
+        # Calculate loss and run optimization step
+        loss = criterion(output, target)
+        total_loss += loss.item()
+        loss.backward()
+        optimizer.step()
+
+    # Return average loss
+    return total_loss / len(loader)
+
+#################################################
+# VALIDATION
+#################################################
 
 def validation(valid_loader, model, epoch):
 
@@ -66,6 +85,10 @@ def validation(valid_loader, model, epoch):
     print('Epoch: {} \tValidation Loss: {:.6f}'.format(
         epoch, valid_loss))
     return valid_loss
+
+#################################################
+# TESTING
+#################################################
 
 def test(data, label, model):
     if (torch.cuda.is_available()):
