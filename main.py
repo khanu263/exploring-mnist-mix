@@ -6,7 +6,7 @@ import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
-from opt import test, training, train
+from opt import test, training, train, validation
 from feedforward import FeedForward
 def main():
 # Load raw data
@@ -28,6 +28,7 @@ def main():
     X_test = X_test / 255
     # percentage of training set to use as validation
     valid_size = 0.2
+    batch_size = 10
 
     # Pytorch train sets
     train_data = torch.utils.data.TensorDataset(X_test, y_test)
@@ -40,18 +41,21 @@ def main():
     train_idx, valid_idx = indices[split:], indices[:split]
 
     # define samplers for obtaining validation batches
-    #valid_sampler = SubsetRandomSampler(valid_idx)
+    valid_sampler = torch.utils.data.SubsetRandomSampler(valid_idx)
 
     # prepare data loaders (combine dataset and sampler)
-    #valid_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, sampler=valid_sampler)
+    valid_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, sampler=valid_sampler)
     net = FeedForward([100,100])
     if (torch.cuda.is_available()):
         net = net.cuda()
-    print(test(X_test, y_test, net))
-    for i in range(500):
-        training(X_train, y_train, net)
-        print(test(X_test, y_test, net))
-
+    accuracy, confusion, softmax = test(X_test, y_test, net)
+    print(accuracy)
+    for i in range(20):
+        training(X_train[train_idx], y_train[train_idx], net)
+        accuracy, confusion, softmax = test(X_test, y_test, net)
+        print(accuracy)
+    
+    validation(valid_loader, net, 2)
 
 if __name__ == '__main__':
     main()

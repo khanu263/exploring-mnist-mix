@@ -5,7 +5,7 @@ import torch.nn.functional as F
 import matplotlib.pyplot as plt
 def training(data, label, model):
     batch_size = 16
-    epochs = 10
+    epochs = 100
     learning_rate = 1e-2
     momentum_value = 1e-1
     runs_per_epoch = int(data.shape[0] / batch_size)
