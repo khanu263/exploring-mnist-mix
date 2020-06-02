@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 #################################################
 
 # Train the given model on the given data.
-def train(model, data, labels, loader, lr, momentum, device):
+def train(model, data, labels, loader, lr, momentum, device, resnet):
 
     # Define criterion and optimizer
     criterion = nn.CrossEntropyLoss()
@@ -31,6 +31,10 @@ def train(model, data, labels, loader, lr, momentum, device):
         # Get the data and labels
         data_batch = data[batch].to(device)
         label_batch = labels[batch].clone().detach().long().to(device)
+
+        # Reshape batch if using a ResNet
+        if resnet:
+            data_batch = data_batch.reshape(len(data_batch), 1, 28, 28)
 
         # Zero the optimizer gradients
         optimizer.zero_grad()
@@ -56,7 +60,7 @@ def train(model, data, labels, loader, lr, momentum, device):
 #################################################
 
 # Run validation on the given model with the given data.
-def validate(model, data, labels, loader, device):
+def validate(model, data, labels, loader, device, resnet):
 
     # Initialize loss and define criterion
     total_loss = 0.0
@@ -71,6 +75,10 @@ def validate(model, data, labels, loader, device):
             # Get the data and labels
             data_batch = data[batch].to(device)
             label_batch = labels[batch].clone().detach().long().to(device)
+
+            # Reshape batch if using a ResNet
+            if resnet:
+                data_batch = data_batch.reshape(len(data_batch), 1, 28, 28)
 
             # Pass the batch through the network
             output = F.softmax(model(data_batch), dim = 1)
@@ -87,7 +95,7 @@ def validate(model, data, labels, loader, device):
 #################################################
 
 # Test the model (accuracy / confusion) on the given model with the given data.
-def test(model, data, labels, loader, device, num_classes):
+def test(model, data, labels, loader, device, num_classes, resnet):
 
     # Initialize metrics
     total = 0
@@ -104,6 +112,10 @@ def test(model, data, labels, loader, device, num_classes):
             # Get the data and labels
             data_batch = data[batch].to(device)
             label_batch = labels[batch].to(device)
+
+            # Reshape batch if using a ResNet
+            if resnet:
+                data_batch = data_batch.reshape(len(data_batch), 1, 28, 28)
 
             # Pass the batch through the network and get the prediction
             output = F.softmax(model(data_batch), dim = 1)

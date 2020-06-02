@@ -81,7 +81,7 @@ class ResNet(nn.Module):
 
         # First convolution
         self.in_planes = 16
-        self.conv1 = nn.Conv2d(3, 16, kernel_size = 3, stride = 1, padding = 1, bias = False)
+        self.conv1 = nn.Conv2d(1, 16, kernel_size = 3, stride = 1, padding = 1, bias = False)
         self.bn1 = nn.BatchNorm2d(16)
 
         # ResNet blocks
@@ -111,7 +111,7 @@ class ResNet(nn.Module):
     def forward(self, x):
         out = F.relu(self.bn1(self.conv1(x)))
         out = self.layer3(self.layer2(self.layer1(out)))
-        out = F.avg_pool2d(out, 8)
+        out = F.avg_pool2d(out, 7)
         out = out.view(out.size(0), -1)
         out = self.linear(out)
         return out

@@ -75,9 +75,11 @@ else:
 # Create the specified model
 if args.feedforward:
     model = models.FeedForward(args.feedforward, num_classes)
+    resnet = False
     print("Created feedforward model with parameters {}".format(args.feedforward))
 elif args.resnet:
     model = models.ResNet(models.ResNetBasicBlock, args.resnet, num_classes)
+    resnet = True
     print("Created ResNet model with parameters {}".format(args.resnet))
 else:
     sys.exit("No model specified. Exiting.")
@@ -95,11 +97,11 @@ for e in range(args.epochs):
     print("\nStarting epoch {}.\n".format(e))
 
     # Perform a training and validation
-    train_losses.append(opt.train(model, data, labels, train_loader, args.learning_rate, args.momentum, device))
-    val_losses.append(opt.validate(model, data, labels, val_loader, device))
+    train_losses.append(opt.train(model, data, labels, train_loader, args.learning_rate, args.momentum, device, resnet))
+    val_losses.append(opt.validate(model, data, labels, val_loader, device, resnet))
 
     # Test the model
-    total, correct, confusion_matrix, softmax_matrix = opt.test(model, data, labels, test_loader, device, num_classes)
+    total, correct, confusion_matrix, softmax_matrix = opt.test(model, data, labels, test_loader, device, num_classes, resnet)
     accuracies.append(correct / total)
 
     # Print progress
