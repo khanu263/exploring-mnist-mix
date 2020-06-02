@@ -50,12 +50,39 @@ def main():
         net = net.cuda()
     accuracy, confusion, softmax = test(X_test, y_test, net)
     print(accuracy)
-    for i in range(20):
+    for i in range(1000):
         training(X_train[train_idx], y_train[train_idx], net)
         accuracy, confusion, softmax = test(X_test, y_test, net)
         print(accuracy)
+    val = validation(valid_loader, net, 2)
+    net2 = FeedForward([100,100,100])
+    if (torch.cuda.is_available()):
+        net2 = net2.cuda()
+    accuracy, confusion, softmax = test(X_test, y_test, net)
+    print(accuracy)
+    for i in range(1000):
+        training(X_train[train_idx], y_train[train_idx], net2)
+        accuracy, confusion, softmax = test(X_test, y_test, net2)
+        print(accuracy)
+    val2 = validation(valid_loader, net2, 2)
+    if (val2 < val):
+        net = net2
+        val = val2
+    net3 = FeedForward([100,100,100])
+    if (torch.cuda.is_available()):
+        net3 = net3.cuda()
+    accuracy, confusion, softmax = test(X_test, y_test, net)
+    print(accuracy)
+    for i in range(1000):
+        training(X_train[train_idx], y_train[train_idx], net3)
+        accuracy, confusion, softmax = test(X_test, y_test, net3)
+        print(accuracy)
+    val3 = validation(valid_loader, net3, 2)
+
+    if (val3 < val):
+        net = net3
+    torch.save(net, "feedforward.pt")
     
-    validation(valid_loader, net, 2)
 
 if __name__ == '__main__':
     main()
