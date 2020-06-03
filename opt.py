@@ -17,13 +17,13 @@ import matplotlib.pyplot as plt
 
 # Train the given model on the given data.
 def train(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: torch.utils.data.dataloader.DataLoader,
-          lr: float, momentum: float, device: torch.device, resnet: bool) -> float:
+          optimizer: optim.Optimizer, device: torch.device, resnet: bool) -> float:
 
-    # Define criterion and optimizer
+    # Switch to train
+    model.train()
+
+    # Define criterion and initialize loss
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(model.parameters(), lr = lr, momentum = momentum)
-
-    # Initialize loss
     total_loss = 0.0
 
     # Go through each batch
@@ -50,7 +50,7 @@ def train(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: to
         optimizer.step()
 
         # Print progress
-        if i % 1000 == 0:
+        if i % 2500 == 0:
             print("\tFinished batch {} ({:.1f}% complete).".format(i, (i / len(loader)) * 100))
 
     # Return average loss
@@ -63,6 +63,9 @@ def train(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: to
 # Run validation on the given model with the given data.
 def validate(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: torch.utils.data.dataloader.DataLoader,
              device: torch.device, resnet: bool) -> float:
+
+    # Switch to eval
+    model.eval()
 
     # Initialize loss and define criterion
     total_loss = 0.0
@@ -100,11 +103,14 @@ def validate(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader:
 def test(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: torch.utils.data.dataloader.DataLoader,
          device: torch.device, num_classes: int, resnet: bool) -> (int, int, torch.Tensor, torch.Tensor):
 
+    # Switch to eval mode
+    model.eval()
+
     # Initialize metrics
     total = 0
     correct = 0
     confusion_matrix = torch.zeros((num_classes, num_classes))
-    softmax_matrix = torch.zeros((num_classes, num_classes)).to(device)
+    softmax_matrix = torch.zeros((num_classes, num_classes))
 
     # Turn off gradient tracking
     with torch.no_grad():
@@ -123,8 +129,12 @@ def test(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: tor
             # Pass the batch through the network and get the prediction
             output = F.softmax(model(data_batch), dim = 1)
 
+            # Move to CPU for caluclations
+            output = output.to("cpu")
+            label_batch = label_batch.to("cpu")
+
             # Iterate through each example
-            for i in range(len(batch)):
+            for i in range(len(data_batch)):
 
                 # Get the prediction and the actual label
                 pred = int(torch.argmax(output[i]))
@@ -140,5 +150,4 @@ def test(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: tor
                 softmax_matrix[label, :] += output[i]
 
     # Move softmax matrix back to CPU and return metrics
-    softmax_matrix.to("cpu")
     return total, correct, confusion_matrix, softmax_matrix

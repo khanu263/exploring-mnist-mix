@@ -63,7 +63,7 @@ class ResNetBasicBlock(nn.Module):
             self.shortcut = nn.Sequential(nn.Conv2d(in_planes, planes, kernel_size = 1, stride = stride, bias = False), nn.BatchNorm2d(planes))
 
     # Forward pass though block
-    def forward(self, x: torch.FloatTensor) -> torch.FloatTensor:
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         out = F.relu(self.bn1(self.conv1(x)))
         out = self.conv2(out)
         out += self.shortcut(x)
@@ -108,7 +108,7 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     # Forward pass through network
-    def forward(self, x: torch.FloatTensor) -> torch.FloatTensor:
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         out = F.relu(self.bn1(self.conv1(x)))
         out = self.layer3(self.layer2(self.layer1(out)))
         out = F.avg_pool2d(out, 7)

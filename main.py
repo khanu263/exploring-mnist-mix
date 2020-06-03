@@ -11,6 +11,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torch.optim as optim
 import matplotlib.pyplot as plt
 
 # Imports - custom
@@ -19,91 +20,179 @@ import opt
 
 # Parse arguments
 parser = argparse.ArgumentParser()
-parser.add_argument("--feedforward", type = int, nargs = "*")
-parser.add_argument("--resnet", type = int, nargs = "*")
-parser.add_argument("--epochs", type = int)
-parser.add_argument("--batch-size", type = int)
-parser.add_argument("--train")
-parser.add_argument("--test")
+parser.add_argument("--create", nargs = "*")
+parser.add_argument("--load")
 parser.add_argument("--labels")
-parser.add_argument("--learning-rate", type = float)
-parser.add_argument("--momentum", type = float)
+parser.add_argument("--train", nargs = 5)
+parser.add_argument("--test", nargs = "+")
 parser.add_argument("--log")
 parser.add_argument("--save")
 parser.add_argument("--gpu", default = False, action = "store_true")
 args = parser.parse_args()
 
+# Check create/load specifications
+if args.create and args.load:
+    sys.exit("You cannot create and load a model in the same run.")
+elif args.create:
+    MODEL_TYPE = args.create[0]
+    MODEL_PARAMS = list(map(int, args.create[1:]))
+elif args.load:
+    LOAD_PATH = args.load
+
+# Check label specification
+if not args.labels or args.labels not in ("specific", "agnostic"):
+    sys.exit("Must specify labels as 'specific' or 'agnostic'.")
+LABEL_TYPE = args.labels
+NUM_CLASSES = 100 if LABEL_TYPE == "specific" else 10
+
+# Check that testing is defined if training is
+if args.train and not args.test:
+    sys.exit("If training is defined, testing must be as well.")
+
+# Check training specification
+if args.train:
+    TRAIN_FILE = args.train[0]
+    EPOCHS = int(args.train[1])
+    BATCH_SIZE = int(args.train[2])
+    LEARNING_RATE = float(args.train[3])
+    MOMENTUM = float(args.train[4])
+    if EPOCHS < 1 or BATCH_SIZE < 1:
+        sys.exit("Epochs and batch size must be at least 1.")
+    if LEARNING_RATE < 0 or MOMENTUM < 0:
+        sys.exit("Learning rate and momentum must be at least 0.")
+
+# Check testing specification
+if args.test:
+    TEST_FILE = args.test[0]
+    try:
+        SAVE_TEST = args.test[1]
+    except:
+        SAVE_TEST = None
+
+# Get the rest of the specifications
+if args.log:
+    LOG_PATH = args.log
+if args.save:
+    SAVE_PATH = args.save
+
 # Get the device to use
-device = torch.device("cuda:0" if (args.gpu and torch.cuda.is_available()) else "cpu")
-print("\nSelected device: {}".format(device))
+DEVICE = torch.device("cuda:0" if (args.gpu and torch.cuda.is_available()) else "cpu")
+print("\nSelected device: {}".format(DEVICE))
 
-# Load data, labels, and splits
-data = np.load("data/data.npy")
-labels = np.load("data/la_labels.npy") if args.labels == "agnostic" else np.load("data/ls_labels.npy")
-train_split = np.loadtxt(args.train, dtype = int)
-test_split = np.loadtxt(args.test, dtype = int)
-val_split = test_split[::10]
-print("Loaded NumPy data.")
-
-# Convert to tensor
-data = torch.from_numpy(data).long()
-labels = torch.from_numpy(labels).long()
-train_split = torch.from_numpy(train_split).long()
-test_split = torch.from_numpy(test_split).long()
-val_split = torch.from_numpy(val_split).long()
-print("Converted data to tensor format.")
-
-# Define data sets and data loaders
-train_set = torch.utils.data.TensorDataset(train_split)
-test_set = torch.utils.data.TensorDataset(test_split)
-val_set = torch.utils.data.TensorDataset(val_split)
-train_loader = torch.utils.data.DataLoader(train_set, batch_size = args.batch_size, shuffle = True)
-test_loader = torch.utils.data.DataLoader(test_set, batch_size = args.batch_size)
-val_loader = torch.utils.data.DataLoader(val_set, batch_size = args.batch_size)
-print("Created data loaders.")
-
-# Get the correct number of classes
-if args.labels == "agnostic":
-    num_classes = 10
-    print("Selected agostic labels.")
-elif args.labels == "specific":
-    num_classes = 100
-    print("Selected specific labels.")
+# Create or load the specified model
+if args.load:
+    model = torch.load(LOAD_PATH)
+elif MODEL_TYPE == "feedforward":
+    model = models.FeedForward(MODEL_PARAMS, NUM_CLASSES)
 else:
-    sys.exit("Labels must be 'agnostic' or 'specific'.")
+    model = models.ResNet(MODEL_PARAMS, NUM_CLASSES)
+model.to(DEVICE)
+print("Created/loaded model and moved to specified device.")
 
-# Create the specified model
-if args.feedforward:
-    model = models.FeedForward(args.feedforward, num_classes)
-    resnet = False
-    print("Created feedforward model with parameters {}".format(args.feedforward))
-elif args.resnet:
-    model = models.ResNet(args.resnet, num_classes)
-    resnet = True
-    print("Created ResNet model with parameters {}".format(args.resnet))
+# Infer if using ResNet or feedforward
+if model.__class__.__name__ == "ResNet":
+    USE_RESNET = True
 else:
-    sys.exit("No model specified. Exiting.")
+    USE_RESNET = False
+print("Using ResNet? {}".format(USE_RESNET))
 
-# Move model to specified device and initialize loss tracking lists
-model.to(device)
-train_losses = []
-val_losses = []
-accuracies = []
-print("Moved model to device and initialized loss lists.")
+# Load data and labels
+data = torch.from_numpy(np.load("data/data.npy"))
+labels = torch.from_numpy(np.load("data/ls_labels.npy") if LABEL_TYPE == "specific" else np.load("data/la_labels.npy"))
+print("Loaded data and labels.")
 
-# Train the model for the specified number of epochs
-for e in range(args.epochs):
+# Load training split if specified
+if args.train:
+    train_split = torch.from_numpy(np.loadtxt(TRAIN_FILE, dtype = int))
+    train_set = torch.utils.data.TensorDataset(train_split)
+    train_loader = torch.utils.data.DataLoader(train_set, batch_size = BATCH_SIZE, shuffle = True)
+    print("Loaded training split.")
 
-    print("\nStarting epoch {}.\n".format(e))
+# Load testing and validation splits if specified
+if args.test:
 
-    # Perform a training and validation
-    train_losses.append(opt.train(model, data, labels, train_loader, args.learning_rate, args.momentum, device, resnet))
-    val_losses.append(opt.validate(model, data, labels, val_loader, device, resnet))
+    # Testing split is guaranteed
+    test_split = torch.from_numpy(np.loadtxt(TEST_FILE, dtype = int))
+    test_set = torch.utils.data.TensorDataset(test_split)
+    test_loader = torch.utils.data.DataLoader(test_set, batch_size = 64)
+    print("Loaded testing split.")
 
-    # Test the model
-    total, correct, confusion_matrix, softmax_matrix = opt.test(model, data, labels, test_loader, device, num_classes, resnet)
-    accuracies.append(correct / total)
+    # Load validation split only if we are training
+    if args.train:
+        val_split = test_split[::10]
+        val_set = torch.utils.data.TensorDataset(val_split)
+        val_loader = torch.utils.data.DataLoader(val_set, batch_size = BATCH_SIZE)
+        print("Created validation split.")
 
-    # Print progress
-    print("\nFinished epoch {}. Training loss: {:.2f}. Validation loss: {:.2f}. Accuracy: {:.2f}%."
-          .format(e, train_losses[-1], val_losses[-1], accuracies[-1] * 100))
+# Perform training if specified
+if args.train:
+
+    # Initialize optimizer loss tracking lists
+    optimizer = optim.SGD(model.parameters(), lr = LEARNING_RATE, momentum = MOMENTUM)
+    train_losses = []
+    val_losses = []
+    accuracies = []
+    print("\nTraining model for {} epochs with batch size {}, learning rate {}, and momentum {}."
+          .format(EPOCHS, BATCH_SIZE, LEARNING_RATE, MOMENTUM))
+
+    # Train the model for the specified number of epochs
+    for e in range(EPOCHS):
+
+        print("\nStarting epoch {}.\n".format(e))
+
+        # Perform a training and validation
+        train_losses.append(opt.train(model, data, labels, train_loader, optimizer, DEVICE, USE_RESNET))
+        val_losses.append(opt.validate(model, data, labels, val_loader, DEVICE, USE_RESNET))
+
+        # Test the model
+        total, correct, confusion_matrix, softmax_matrix = opt.test(model, data, labels, test_loader, DEVICE, NUM_CLASSES, USE_RESNET)
+        accuracies.append(correct / total)
+
+        # Print progress
+        print("\nFinished epoch {}. Training loss: {:.2f}. Validation loss: {:.2f}. Accuracy: {:.2f}%."
+            .format(e, train_losses[-1], val_losses[-1], accuracies[-1] * 100))
+
+    # If specified, save the log
+    if args.log:
+
+        # Generate lines
+        train_lines = "\t".join(map(str, train_losses))
+        val_lines = "\t".join(map(str, val_losses))
+        acc_lines = "\t".join(map(str, accuracies))
+
+        # Write file
+        with open(LOG_PATH, "w") as f:
+            f.write("\n".join([train_lines, val_lines, acc_lines]))
+
+        # Report success
+        print("\nWrote log of losses and accuracies to {}.".format(LOG_PATH))
+
+# Perform a final round of testing if specified
+if args.test:
+
+    # Do the testing and report results
+    total, correct, confusion_matrix, softmax_matrix = opt.test(model, data, labels, test_loader, DEVICE, NUM_CLASSES, USE_RESNET)
+    print("\nPerformed testing. Final accuracy: {:.2f}%. ({} / {})".format((correct / total) * 100, correct, total))
+
+    # If requested, save to file with confusion matrix
+    if SAVE_TEST:
+
+        # Convert confusion matrix to NumPy array and save
+        save_conf = confusion_matrix.to("cpu").numpy()
+        np.savetxt(SAVE_TEST, save_conf, fmt = "%s")
+
+        # Append the accuracy to the end
+        with open(SAVE_TEST, "a") as f:
+            f.write("\n{}".format((correct / total) * 100))
+
+        # Report success
+        print("\nWrote confusion matrix and accuracy to {}.".format(SAVE_TEST))
+
+# Save the model if requested
+if args.save:
+    model.to("cpu")
+    torch.save(model, SAVE_PATH)
+    print("\nSaved model to {}.".format(SAVE_PATH))
+
+# Final newline
+print("")
