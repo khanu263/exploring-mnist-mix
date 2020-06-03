@@ -30,8 +30,8 @@ def train(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: to
     for i, batch in enumerate(loader):
 
         # Get the data and labels
-        data_batch = data[batch].to(device)
-        label_batch = labels[batch].clone().detach().long().to(device)
+        data_batch = data[batch[0].long()].to(device)
+        label_batch = labels[batch[0].long()].clone().detach().long().to(device)
 
         # Reshape batch if using a ResNet
         if resnet:
@@ -78,8 +78,8 @@ def validate(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader:
         for batch in loader:
 
             # Get the data and labels
-            data_batch = data[batch].to(device)
-            label_batch = labels[batch].clone().detach().long().to(device)
+            data_batch = data[batch[0].long()].to(device)
+            label_batch = labels[batch[0].long()].clone().detach().long().to(device)
 
             # Reshape batch if using a ResNet
             if resnet:
@@ -119,8 +119,8 @@ def test(model: nn.Module, data: torch.Tensor, labels: torch.Tensor, loader: tor
         for batch in loader:
 
             # Get the data and labels
-            data_batch = data[batch].to(device)
-            label_batch = labels[batch].to(device)
+            data_batch = data[batch[0].long()].to(device)
+            label_batch = labels[batch[0].long()].to(device)
 
             # Reshape batch if using a ResNet
             if resnet:
