@@ -1,0 +1,919 @@
+
+Selected device: cuda:0
+Created/loaded model and moved to specified device.
+Using ResNet? True
+Loaded data and labels.
+Loaded training split.
+Loaded testing split.
+Created validation split.
+
+Training model for 150 epochs with batch size 32, learning rate 0.01, and momentum 0.9.
+
+Starting epoch 0.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 0. Training loss: 2.26. Validation loss: 2.27. Accuracy: 19.38%.
+
+Starting epoch 1.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 1. Training loss: 2.14. Validation loss: 1.92. Accuracy: 54.31%.
+
+Starting epoch 2.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 2. Training loss: 1.84. Validation loss: 1.73. Accuracy: 70.58%.
+
+Starting epoch 3.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 3. Training loss: 1.74. Validation loss: 1.69. Accuracy: 77.44%.
+
+Starting epoch 4.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 4. Training loss: 1.67. Validation loss: 1.58. Accuracy: 89.46%.
+
+Starting epoch 5.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 5. Training loss: 1.58. Validation loss: 1.55. Accuracy: 90.52%.
+
+Starting epoch 6.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 6. Training loss: 1.56. Validation loss: 1.51. Accuracy: 96.82%.
+
+Starting epoch 7.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 7. Training loss: 1.51. Validation loss: 1.50. Accuracy: 97.60%.
+
+Starting epoch 8.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 8. Training loss: 1.49. Validation loss: 1.49. Accuracy: 97.95%.
+
+Starting epoch 9.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 9. Training loss: 1.49. Validation loss: 1.48. Accuracy: 98.44%.
+
+Starting epoch 10.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 10. Training loss: 1.49. Validation loss: 1.49. Accuracy: 98.09%.
+
+Starting epoch 11.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 11. Training loss: 1.48. Validation loss: 1.48. Accuracy: 97.45%.
+
+Starting epoch 12.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 12. Training loss: 1.48. Validation loss: 1.49. Accuracy: 97.88%.
+
+Starting epoch 13.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 13. Training loss: 1.48. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 14.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 14. Training loss: 1.48. Validation loss: 1.49. Accuracy: 98.66%.
+
+Starting epoch 15.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 15. Training loss: 1.48. Validation loss: 1.48. Accuracy: 98.51%.
+
+Starting epoch 16.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 16. Training loss: 1.48. Validation loss: 1.48. Accuracy: 98.51%.
+
+Starting epoch 17.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 17. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.44%.
+
+Starting epoch 18.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 18. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.30%.
+
+Starting epoch 19.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 19. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.30%.
+
+Starting epoch 20.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 20. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.16%.
+
+Starting epoch 21.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 21. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.16%.
+
+Starting epoch 22.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 22. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.02%.
+
+Starting epoch 23.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 23. Training loss: 1.47. Validation loss: 1.49. Accuracy: 97.95%.
+
+Starting epoch 24.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 24. Training loss: 1.47. Validation loss: 1.49. Accuracy: 97.81%.
+
+Starting epoch 25.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 25. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.59%.
+
+Starting epoch 26.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 26. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.23%.
+
+Starting epoch 27.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 27. Training loss: 1.47. Validation loss: 1.49. Accuracy: 97.88%.
+
+Starting epoch 28.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 28. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 29.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 29. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.23%.
+
+Starting epoch 30.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 30. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.30%.
+
+Starting epoch 31.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 31. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.44%.
+
+Starting epoch 32.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 32. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.23%.
+
+Starting epoch 33.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 33. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.59%.
+
+Starting epoch 34.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 34. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.23%.
+
+Starting epoch 35.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 35. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 36.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 36. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.66%.
+
+Starting epoch 37.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 37. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.59%.
+
+Starting epoch 38.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 38. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.37%.
+
+Starting epoch 39.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 39. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.44%.
+
+Starting epoch 40.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 40. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.59%.
+
+Starting epoch 41.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 41. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.44%.
+
+Starting epoch 42.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 42. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.44%.
+
+Starting epoch 43.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 43. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.44%.
+
+Starting epoch 44.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 44. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.59%.
+
+Starting epoch 45.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 45. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.66%.
+
+Starting epoch 46.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 46. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 47.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 47. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 48.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 48. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 49.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 49. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 50.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 50. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 51.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 51. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 52.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 52. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.16%.
+
+Starting epoch 53.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 53. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.44%.
+
+Starting epoch 54.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 54. Training loss: 1.47. Validation loss: 1.48. Accuracy: 97.95%.
+
+Starting epoch 55.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 55. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.37%.
+
+Starting epoch 56.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 56. Training loss: 1.47. Validation loss: 1.49. Accuracy: 97.81%.
+
+Starting epoch 57.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 57. Training loss: 1.46. Validation loss: 1.48. Accuracy: 98.23%.
+
+Starting epoch 58.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 58. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.59%.
+
+Starting epoch 59.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 59. Training loss: 1.47. Validation loss: 1.49. Accuracy: 97.88%.
+
+Starting epoch 60.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 60. Training loss: 1.46. Validation loss: 1.48. Accuracy: 98.59%.
+
+Starting epoch 61.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 61. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 62.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 62. Training loss: 1.47. Validation loss: 1.48. Accuracy: 97.95%.
+
+Starting epoch 63.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 63. Training loss: 1.46. Validation loss: 1.48. Accuracy: 98.16%.
+
+Starting epoch 64.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 64. Training loss: 1.46. Validation loss: 1.48. Accuracy: 98.59%.
+
+Starting epoch 65.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 65. Training loss: 1.46. Validation loss: 1.48. Accuracy: 98.23%.
+
+Starting epoch 66.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 66. Training loss: 1.46. Validation loss: 1.49. Accuracy: 97.95%.
+
+Starting epoch 67.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 67. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.37%.
+
+Starting epoch 68.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 68. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.51%.
+
+Starting epoch 69.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 69. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.23%.
+
+Starting epoch 70.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 70. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.23%.
+
+Starting epoch 71.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 71. Training loss: 1.47. Validation loss: 1.49. Accuracy: 97.95%.
+
+Starting epoch 72.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 72. Training loss: 1.47. Validation loss: 1.49. Accuracy: 97.74%.
+
+Starting epoch 73.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 73. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.16%.
+
+Starting epoch 74.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 74. Training loss: 1.47. Validation loss: 1.49. Accuracy: 98.23%.
+
+Starting epoch 75.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 75. Training loss: 1.47. Validation loss: 1.48. Accuracy: 98.09%.
+
+Starting epoch 76.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 76. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 77.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 77. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 78.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 78. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.02%.
+
+Starting epoch 79.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 79. Training loss: 1.46. Validation loss: 1.48. Accuracy: 98.37%.
+
+Starting epoch 80.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 80. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 81.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 81. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 82.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 82. Training loss: 1.46. Validation loss: 1.48. Accuracy: 98.37%.
+
+Starting epoch 83.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 83. Training loss: 1.46. Validation loss: 1.49. Accuracy: 97.88%.
+
+Starting epoch 84.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 84. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 85.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 85. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.23%.
+
+Starting epoch 86.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 86. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 87.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 87. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 88.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 88. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 89.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 89. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 90.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 90. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 91.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 91. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 92.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 92. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.23%.
+
+Starting epoch 93.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 93. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 94.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 94. Training loss: 1.46. Validation loss: 1.48. Accuracy: 98.59%.
+
+Starting epoch 95.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 95. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 96.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 96. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 97.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 97. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 98.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 98. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 99.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 99. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 100.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 100. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 101.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 101. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 102.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 102. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 103.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 103. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 104.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 104. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 105.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 105. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 106.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 106. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 107.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 107. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 108.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 108. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 109.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 109. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 110.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 110. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 111.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 111. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 112.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 112. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.66%.
+
+Starting epoch 113.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 113. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 114.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 114. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 115.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 115. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 116.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 116. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 117.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 117. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 118.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 118. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 119.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 119. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.66%.
+
+Starting epoch 120.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 120. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 121.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 121. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 122.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 122. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 123.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 123. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.66%.
+
+Starting epoch 124.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 124. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.66%.
+
+Starting epoch 125.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 125. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.66%.
+
+Starting epoch 126.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 126. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.66%.
+
+Starting epoch 127.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 127. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.73%.
+
+Starting epoch 128.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 128. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 129.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 129. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 130.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 130. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 131.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 131. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 132.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 132. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 133.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 133. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 134.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 134. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 135.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 135. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 136.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 136. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 137.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 137. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 138.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 138. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.59%.
+
+Starting epoch 139.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 139. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.51%.
+
+Starting epoch 140.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 140. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 141.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 141. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 142.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 142. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.30%.
+
+Starting epoch 143.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 143. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 144.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 144. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.23%.
+
+Starting epoch 145.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 145. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 146.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 146. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Starting epoch 147.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 147. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 148.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 148. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.44%.
+
+Starting epoch 149.
+
+	Finished batch 0 (0.0% complete).
+
+Finished epoch 149. Training loss: 1.46. Validation loss: 1.49. Accuracy: 98.37%.
+
+Wrote log of losses and accuracies to log/resnet4urdu.log.
+
+Performed testing. Final accuracy: 98.37%. (1391 / 1414)
+
+Wrote confusion matrix and accuracy to test/resnet4urdu.txt.
+
+Saved model to model/resnet4urdu.pt.
+
