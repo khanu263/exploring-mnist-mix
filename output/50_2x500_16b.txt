@@ -1,0 +1,919 @@
+python main.py --create feedforward 500 500 --labels specific --train data/splits/all_train.split 50 16 0.1 0.9 --test data/splits/all_test.split tests/50_2x500_16b.txt --log logs/50_2x500_16b.log --save models/50_2x500_16b.pt --gpu
+
+Selected device: cpu
+Created/loaded model and moved to specified device.
+Using ResNet? False
+Loaded data and labels.
+Loaded training split.
+Loaded testing split.
+Created validation split.
+
+Training model for 50 epochs with batch size 16, learning rate 0.1, and momentum 0.9.
+
+Starting epoch 0.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 0. Training loss: 4.57. Validation loss: 4.59. Accuracy: 3.73%.
+
+Starting epoch 1.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 1. Training loss: 4.57. Validation loss: 4.59. Accuracy: 3.73%.
+
+Starting epoch 2.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 2. Training loss: 4.57. Validation loss: 4.59. Accuracy: 3.73%.
+
+Starting epoch 3.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 3. Training loss: 4.57. Validation loss: 4.59. Accuracy: 3.73%.
+
+Starting epoch 4.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 4. Training loss: 4.38. Validation loss: 4.38. Accuracy: 24.68%.
+
+Starting epoch 5.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 5. Training loss: 4.29. Validation loss: 4.37. Accuracy: 26.71%.
+
+Starting epoch 6.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 6. Training loss: 4.25. Validation loss: 4.33. Accuracy: 33.51%.
+
+Starting epoch 7.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 7. Training loss: 4.17. Validation loss: 4.29. Accuracy: 37.64%.
+
+Starting epoch 8.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 8. Training loss: 4.14. Validation loss: 4.29. Accuracy: 38.80%.
+
+Starting epoch 9.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 9. Training loss: 4.13. Validation loss: 4.29. Accuracy: 39.50%.
+
+Starting epoch 10.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 10. Training loss: 4.13. Validation loss: 4.29. Accuracy: 39.65%.
+
+Starting epoch 11.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 11. Training loss: 4.13. Validation loss: 4.29. Accuracy: 39.76%.
+
+Starting epoch 12.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 12. Training loss: 4.12. Validation loss: 4.29. Accuracy: 41.20%.
+
+Starting epoch 13.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 13. Training loss: 4.11. Validation loss: 4.29. Accuracy: 44.61%.
+
+Starting epoch 14.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 14. Training loss: 4.07. Validation loss: 4.29. Accuracy: 45.94%.
+
+Starting epoch 15.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 15. Training loss: 4.07. Validation loss: 4.29. Accuracy: 45.89%.
+
+Starting epoch 16.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 16. Training loss: 4.06. Validation loss: 4.28. Accuracy: 46.92%.
+
+Starting epoch 17.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 17. Training loss: 4.05. Validation loss: 4.28. Accuracy: 48.22%.
+
+Starting epoch 18.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 18. Training loss: 4.04. Validation loss: 4.28. Accuracy: 48.11%.
+
+Starting epoch 19.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 19. Training loss: 4.04. Validation loss: 4.28. Accuracy: 47.98%.
+
+Starting epoch 20.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 20. Training loss: 4.04. Validation loss: 4.28. Accuracy: 48.23%.
+
+Starting epoch 21.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 21. Training loss: 4.03. Validation loss: 4.26. Accuracy: 51.01%.
+
+Starting epoch 22.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 22. Training loss: 4.02. Validation loss: 4.26. Accuracy: 51.16%.
+
+Starting epoch 23.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 23. Training loss: 4.02. Validation loss: 4.26. Accuracy: 51.13%.
+
+Starting epoch 24.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 24. Training loss: 4.02. Validation loss: 4.26. Accuracy: 52.01%.
+
+Starting epoch 25.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 25. Training loss: 4.01. Validation loss: 4.26. Accuracy: 52.00%.
+
+Starting epoch 26.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 26. Training loss: 4.01. Validation loss: 4.26. Accuracy: 52.01%.
+
+Starting epoch 27.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 27. Training loss: 4.01. Validation loss: 4.26. Accuracy: 52.22%.
+
+Starting epoch 28.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 28. Training loss: 4.01. Validation loss: 4.26. Accuracy: 52.42%.
+
+Starting epoch 29.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 29. Training loss: 4.01. Validation loss: 4.26. Accuracy: 52.34%.
+
+Starting epoch 30.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 30. Training loss: 4.01. Validation loss: 4.26. Accuracy: 52.37%.
+
+Starting epoch 31.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 31. Training loss: 3.98. Validation loss: 4.22. Accuracy: 55.64%.
+
+Starting epoch 32.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 32. Training loss: 3.96. Validation loss: 4.22. Accuracy: 56.12%.
+
+Starting epoch 33.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 33. Training loss: 3.96. Validation loss: 4.22. Accuracy: 55.85%.
+
+Starting epoch 34.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 34. Training loss: 3.96. Validation loss: 4.22. Accuracy: 55.78%.
+
+Starting epoch 35.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 35. Training loss: 3.95. Validation loss: 4.20. Accuracy: 57.38%.
+
+Starting epoch 36.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 36. Training loss: 3.95. Validation loss: 4.20. Accuracy: 57.75%.
+
+Starting epoch 37.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 37. Training loss: 3.95. Validation loss: 4.20. Accuracy: 57.49%.
+
+Starting epoch 38.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 38. Training loss: 3.94. Validation loss: 4.20. Accuracy: 58.25%.
+
+Starting epoch 39.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 39. Training loss: 3.93. Validation loss: 4.20. Accuracy: 58.76%.
+
+Starting epoch 40.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 40. Training loss: 3.93. Validation loss: 4.20. Accuracy: 58.61%.
+
+Starting epoch 41.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 41. Training loss: 3.93. Validation loss: 4.20. Accuracy: 58.59%.
+
+Starting epoch 42.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 42. Training loss: 3.93. Validation loss: 4.20. Accuracy: 58.53%.
+
+Starting epoch 43.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 43. Training loss: 3.93. Validation loss: 4.20. Accuracy: 58.66%.
+
+Starting epoch 44.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 44. Training loss: 3.93. Validation loss: 4.20. Accuracy: 58.62%.
+
+Starting epoch 45.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 45. Training loss: 3.93. Validation loss: 4.20. Accuracy: 58.68%.
+
+Starting epoch 46.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 46. Training loss: 3.93. Validation loss: 4.20. Accuracy: 58.56%.
+
+Starting epoch 47.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 47. Training loss: 3.93. Validation loss: 4.20. Accuracy: 58.70%.
+
+Starting epoch 48.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 48. Training loss: 3.93. Validation loss: 4.20. Accuracy: 58.72%.
+
+Starting epoch 49.
+
+        Finished batch 0 (0.0% complete).
+        Finished batch 2500 (8.1% complete).
+        Finished batch 5000 (16.2% complete).
+        Finished batch 7500 (24.3% complete).
+        Finished batch 10000 (32.3% complete).
+        Finished batch 12500 (40.4% complete).
+        Finished batch 15000 (48.5% complete).
+        Finished batch 17500 (56.6% complete).
+        Finished batch 20000 (64.7% complete).
+        Finished batch 22500 (72.8% complete).
+        Finished batch 25000 (80.9% complete).
+        Finished batch 27500 (89.0% complete).
+        Finished batch 30000 (97.0% complete).
+
+Finished epoch 49. Training loss: 3.93. Validation loss: 4.20. Accuracy: 58.68%.
+
+Wrote log of losses and accuracies to logs/50_2x500_16b.log.
+
+Performed testing. Final accuracy: 58.68%. (62883 / 107158)
+
+Wrote confusion matrix and accuracy to tests/50_2x500_16b.txt.
+
+Saved model to models/50_2x500_16b.pt.
