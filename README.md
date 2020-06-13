@@ -54,6 +54,6 @@ python main.py --load models/10_resnet14.pt
 | 4      | Farsi        | 60000     | 20000    | 80000     |
 | 5      | Kannada      | 60000     | 20240    | 80240     |
 | 6      | Swedish      | 6600      | 1000     | 7600      |
-| 7      | Telegu       | 2400      | 600      | 3000      |
+| 7      | Telugu       | 2400      | 600      | 3000      |
 | 8      | Tibetan      | 14214     | 3554     | 17768     |
 | 9      | Urdu         | 6606      | 1414     | 8020      |
